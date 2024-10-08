@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+// ignotr all file in terraform-azure-deploy except main.tf
+terraform-azure-deploy/*
+!terraform-azure-deploy/main.tf
