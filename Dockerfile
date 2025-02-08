@@ -1,12 +1,10 @@
-FROM maven:3.6.3-jdk-11 AS build
+FROM maven:3.9.4-eclipse-temurin-21 AS build
 COPY . .
-RUN mvn clean package 
+RUN mvn clean package
 
-FROM openjdk:11-jre-slim
+FROM eclipse-temurin:21-jre
 COPY --from=build /target/*.jar spatial-wars.jar
 
-EXPOSE  8080
+EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","/spatial-wars.jar"]
-
-
+ENTRYPOINT ["java", "-jar", "/spatial-wars.jar"]
